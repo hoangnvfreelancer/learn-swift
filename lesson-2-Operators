@@ -1,0 +1,59 @@
+import Foundation
+
+// Implicitly Unwrapped Optionals
+let possibleString: String? = "An optional string."
+let forcedString: String = possibleString! // requires an exclamation point
+
+print("type of possibleString is: \(type(of: possibleString))")
+print("type of forcedString is: \(type(of: possibleString))")
+
+var assumedString: String!
+assumedString = "An implicitly unwrapped optional string."
+let implicitString: String = assumedString // no need for an exclamation point
+
+print("type of assumedString is: \(type(of: assumedString))")
+print("type of implicitString is: \(type(of: implicitString))")
+
+var a = 1
+a += 2
+//a = a + 2
+print(a)
+
+let hasHeader: Bool = true
+let height = hasHeader ? 50 : 20
+
+print(height)
+
+//if hasHeader {
+//    height = 50
+//} else {
+//    height = 20
+//}
+
+// Nil-Coalescing Operator
+var name: String? = "An"
+var text = name ?? "ban"
+print("xin chao \(text)")
+
+// Logical Operators
+
+let traTien: Bool = false
+
+if !traTien {
+    print("t canh bao may lan 1")
+}
+
+if traTien == false {
+    print("t canh bao may lan 1")
+}
+
+let condition1 = false
+let condition2 = false
+
+if condition1 && condition2 {
+    print("hello")
+}
+
+if condition1 || condition2 {
+    print("hello")
+}
