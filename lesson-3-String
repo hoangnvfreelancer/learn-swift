@@ -1,0 +1,110 @@
+import Foundation
+
+let oneline = "Hello An\nWelcome to Swift!"
+print(oneline)
+
+let lineBreaks = """
+This string starts with a line break. \
+\u{1F600}
+It also ends with a line break.
+"""
+print(lineBreaks)
+
+let oneline2 = "Hello An \"welcome\""
+print(oneline2)
+
+// Initializing an Empty String
+var emptyString = "hello"           // empty string literal
+var anotherEmptyString = String()  // initializer syntax
+
+if emptyString.isEmpty {
+    print("Nothing to see here")
+}
+
+// Working with Characters
+for character in "Dog!🐶" {
+    print(character)
+}
+
+let catCharacters: [Character] = ["C", "a", "t", "!", "🐱"]
+let catString = String(catCharacters)
+print(catString)
+
+var welcome: String = "Welcome to Viet Nam"
+let exclamationMark: Character = "!"
+welcome.append(exclamationMark)
+welcome.append(" hi")
+welcome.append(" Hoang")
+print(welcome)
+
+// String Interpolation
+let multiplier: Int = 3
+let message = "\(multiplier) times 2.5 is \(Double(multiplier) * 2.5)"
+print(message)
+
+// Counting Characters
+let unusualMenagerie = "Hello"
+print("unusualMenagerie has \(unusualMenagerie.count) characters")
+
+// Accessing and Modifying a String
+// String Indices
+let greeting = "Hello An!"
+
+greeting[greeting.startIndex] // H
+greeting[greeting.index(before: greeting.endIndex)] // !
+greeting[greeting.index(after: greeting.startIndex)] // e
+
+let index = greeting.index(greeting.startIndex, offsetBy: 4)
+greeting[index]
+
+for index in greeting.indices {
+    print("\(greeting[index]) ", terminator: " ")
+}
+
+// Inserting and Removing
+var welcome2 = "hello"
+//welcome.insert("!", at: welcome.startIndex)
+welcome2.insert(contentsOf: " there", at: welcome2.endIndex)
+welcome2.remove(at: welcome2.index(before: welcome2.endIndex))
+print(welcome2)
+
+
+// Substrings
+let greeting2 = "Hello world!"
+let index2 = greeting2.firstIndex(of: ",") ?? greeting2.endIndex
+let beginning = greeting2[..<index2]
+print(type(of: beginning)) // sub string
+let epKieu = String(beginning)
+print(type(of: epKieu)) // string
+
+// Comparing Strings
+let quotation = "I love u"
+let sameQuotation = "I love u too"
+if quotation == sameQuotation {
+    print("These two strings are considered equal")
+}
+
+// Prefix and Suffix Equality
+let romeoAndJuliet = [
+    "Act 1 Scene 1: Verona, A public place",
+    "Act 1 Scene 2: Capulet's mansion",
+    "Act 1 Scene 3: A room in Capulet's mansion",
+    "Act 1 Scene 4: A street outside Capulet's mansion",
+    "Act 1 Scene 5: The Great Hall in Capulet's mansion",
+    "Act 2 Scene 1: Outside Capulet's mansion",
+    "Act 2 Scene 2: Capulet's orchard",
+    "Act 2 Scene 3: Outside Friar Lawrence's cell",
+    "Act 2 Scene 4: A street in Verona",
+    "Act 2 Scene 5: Capulet's mansion",
+    "Act 2 Scene 6: Friar Lawrence's cell"
+]
+
+for scene in romeoAndJuliet {
+    if scene.hasPrefix("Act 1 ") {
+        print(scene)
+    }
+    
+    if scene.hasSuffix("place") {
+        print(scene)
+    }
+}
