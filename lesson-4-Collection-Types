@@ -1,0 +1,60 @@
+import Foundation
+
+// 1. Array
+var str_array: [String] = ["An"]
+let int_array: [Int] = [1, 2, 3, 4, 5]
+
+// Creating an Empty Array
+var someInts: [Int] = []
+
+// Creating an Array with a Default Value
+var someInts2: [Int] = [1, 2, 3]
+var threeDoubles = Array(repeating: 5, count: 3)
+print(threeDoubles)
+
+var sixDoubles = threeDoubles + someInts2
+print(sixDoubles)
+
+// Accessing and Modifying an Array
+print("The str_array list contains \(str_array.count) items.")
+
+if str_array.isEmpty {
+    print("The shopping list is empty.")
+} else {
+    print("The shopping list isn't empty.")
+}
+
+//str_array.append("Tien")
+str_array += ["Tien", "Quoc", "Trung", "Yen", "Trang"]
+print(str_array)
+
+print(str_array[2])
+
+print(str_array[0...2])
+print(str_array[0..<2])
+print(str_array[..<2])
+print(str_array[2...])
+
+str_array.reverse()
+str_array.insert("ABC", at: 1)
+str_array.remove(at: 1)
+print(str_array)
+
+print(str_array.first)
+print(str_array.last)
+
+let a = str_array.firstIndex(of: "Quoc")
+
+str_array.removeLast()
+print(str_array)
+
+// Iterating Over an Array
+for item in str_array {
+    print(item)
+}
+
+for (index, value) in str_array.enumerated() {
+    print("Item \(index + 1): \(value)")
+}
+
+//let dictionnary: [String: Any] = ["name": "An", "age": 23]
