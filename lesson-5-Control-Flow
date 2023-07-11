@@ -1,0 +1,68 @@
+import Foundation
+
+// MARK: For-In Loops
+
+// Array
+let names = ["Anna", "Alex", "Brian", "Jack"]
+for name in names {
+    print("Hello, \(name)!")
+}
+
+// Dictionary
+let numberOfLegs = ["spider": 8, "ant": 6, "cat": 4]
+for (animalName, legCount) in numberOfLegs {
+    print("\(animalName)s have \(legCount) legs")
+}
+
+// numeric ranges
+for index in 2...5 {
+    print("\(index) times 5 is \(index * 5)")
+}
+
+let base = 3
+let power = 10
+var answer = 1
+
+for _ in 1...power {
+    answer *= base // answer = answer * base
+}
+
+print("\(base) to the power of \(power) is \(answer)")
+
+let max = 60
+let step = 5
+
+for tickMark in stride(from: 0, to: max, by: step) {
+    print(tickMark)
+}
+
+for tickMark in stride(from: 0, through: max, by: step) {
+    print(tickMark)
+}
+
+// MARK: While Loops
+
+// While
+var condition: Bool = true
+var count: Int = 0
+
+while condition {
+    print(count)
+    count += 1
+
+    if count > 5 {
+        condition = false
+    }
+}
+
+// Repeat-While
+repeat {
+    print(count)
+    count += 1
+    
+    if count > 5 {
+        condition = false
+    }
+} while condition
+
+// MARK: Conditional Statements
