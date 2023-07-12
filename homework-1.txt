@@ -1,0 +1,46 @@
+1. Cho 2 chuỗi string "123" và "456". Hãy in ra ngoài màn hình kết quả với form sau "123 + 456 = ?"
+
+2. Cho mảng kí tự ["a", "b", "c", "d", "e", "f"]. In ra màn hình nếu kí tự là "a", "d", "f"
+
+3. Cho mảng string
+[
+"String literals can include the following special characters",
+"The code below shows four examples of these special characters",
+"Initializing an Empty String",
+"You access and modify a string through its methods and properties, or by using subscript syntax."
+]
+
+- In ra ngoài màn hình index và giá trị của từng phần tử trong mảng.
+- In ra ngoài màn hình những chuỗi string kết thúc bằng "special characters"
+- In ra ngoài màn hình string bắt đầu với chữ "Initializing"
+
+4. Cho chuỗi string "Use comments to include nonexecutable text in your code, as a note or reminder to yourself. Comments are ignored by the Swift compiler when your code is compiled."
+To do:
+- Kiểm tra xem trong chuỗi string có text "your code" không.
+- Tìm index của dấu , trong chuỗi string trên. In ra màn hình chuỗi string từ đầu chuỗi tới kí tự trước dấu ,
+- Tìm index của đấu . đầu tiên. In ra màn hình chuỗi string từ kí tự sau dấu . tới hết chuỗi string.
+- Tách chuỗi string này thành 2 chuỗi string mới bởi dấu chấm hết câu.
+- Insert vào đầu chuỗi string trên với "Comments is helpful. ". Có bao nhiêu dấu . hết câu trong chuỗi string mới sau khi insert.
+
+5.
+- Tạo 1 dictionary trống kiểu [String: String]
+- Thêm mới giá trị "Viet Nam" với key "VN"
+- Thêm 2 cặp key, value mới ["US": "US", "UK": "United Kingdom"] vào dictionary.
+- Sử dụng vòng lặp in toàn bộ key, value của dictionary ra ngoài màn hình.
+- Xoá key "UK"
+- Sửa giá trị của key "US" thành "United States"
+
+6. 
+- Khai báo biến kiểu String và có thể nhận giá trị nil
+- Cho nó giá trị là tên của bạn. In ra ngoài màn hình text với form "Hello [biến], You are welcome!"
+
+7. Khai báo 1 biến integer với giá trị khởi đầu bằng 0. Mỗi vòng lặp lại nhân gấp đôi giá trị cũ. Hỏi sau bao nhiêu vòng lặp thì giá trị lớn hơn 100.
+
+8. Cho mảng int như sau [2, 6, 1, 9, 45, 23, 0].
+- Tìm giá trị lớn nhất và nhỏ nhất của mảng. Sau đó in ra ngoài màn hình.
+- Tính trung bình cộng của các số trong mảng.
+
+9. Cho mảng giá trị ["a", "b", "c", "g", "t", "n", "o", "e", "q", "k", "p", "z"]
+- Note: Có thể di chuyển ngược từ a về z, hoặc tiến từ z về a (tính là 1 bước). Đặt điểm khởi hành là "c" và kết thúc ở "z" (sẽ thay đổi để kiểm tra thuật toán).
+Tính xem số bước nhỏ nhất và hướng di chuyển để di chuyển từ c đến z nhanh nhất có thể.
+
