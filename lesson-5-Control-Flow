@@ -66,3 +66,147 @@ repeat {
 } while condition
 
 // MARK: Conditional Statements
+
+// If
+var temperature = 29
+
+if temperature > 28 {
+    print("It's very hot!")
+}
+
+if temperature > 28 {
+    print("It's very hot")
+} else {
+    print("It's very cold")
+}
+
+let a = 9
+
+if a > 32 {
+    print(a)
+} else if a == 12 {
+    print("\(a) abc")
+} else {
+    print("It's not that cold. Wear a T-shirt.")
+}
+
+// Switch
+enum MyWeek {
+    case Monday
+    case Tuesday
+}
+
+let day: MyWeek = .Tuesday
+
+switch day {
+case .Monday:
+    print("Monday")
+case .Tuesday:
+    print("Tuesday")
+}
+
+let text = "Quoc"
+
+switch text {
+case "Phong":
+    print("Phong")
+case "An":
+    print("An")
+default:
+    print("Unknown")
+}
+
+let approximateCount = 62
+let countedThings = "moons orbiting Saturn"
+
+let naturalCount: String
+
+switch approximateCount {
+case 0:
+    naturalCount = "no"
+case 1..<5:
+    naturalCount = "a few"
+case 5..<12:
+    naturalCount = "several"
+case 12..<100:
+    naturalCount = "dozens of"
+case 100..<1000:
+    naturalCount = "hundreds of"
+default:
+    naturalCount = "many"
+}
+print("There are \(naturalCount) \(countedThings).")
+
+// Tuples
+let somePoint = (1, 1)
+switch somePoint {
+case (0, 0):
+    print("\(somePoint) is at the origin")
+case (_, 0):
+    print("\(somePoint) is on the x-axis")
+case (0, _):
+    print("\(somePoint) is on the y-axis")
+case (-2...2, -2...2):
+    print("\(somePoint) is inside the box")
+default:
+    print("\(somePoint) is outside of the box")
+}
+
+// Where
+let yetAnotherPoint = (1, -1)
+switch yetAnotherPoint {
+case let (x, y) where x == y:
+    print("(\(x), \(y)) is on the line x == y")
+case let (x, y) where x == -y:
+    print("(\(x), \(y)) is on the line x == -y")
+case let (x, y):
+    print("(\(x), \(y)) is just some arbitrary point")
+}
+
+// Compound Cases
+let someCharacter: Character = "1"
+switch someCharacter {
+case "a", "e", "i", "o", "u":
+    print("\(someCharacter) is a vowel")
+case "b", "c", "d", "f", "g", "h", "j", "k", "l", "m",
+    "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z":
+    print("\(someCharacter) is a consonant")
+default:
+    print("\(someCharacter) isn't a vowel or a consonant")
+}
+
+let stillAnotherPoint = (9, 9)
+switch stillAnotherPoint {
+case (let x, 0):
+    print("Nam tren truc x voi gia tri y la \(x)")
+case (0, let y):
+    print("Nam tren truc y voi gia tri x la \(y)")
+default:
+    print("Not on an axis")
+}
+
+// MARK: Control Transfer Statements
+let counter: Int = 5
+
+for number in 1...counter {
+    if number == 3 {
+//        continue
+        break
+    }
+    print(number)
+}
+
+let intNum: Int = 5
+switch intNum {
+case 2, 3, 5, 7, 11, 13, 17, 19:
+    print("OK")
+    fallthrough
+default:
+    print("Not OK")
+}
+
+if #available(iOS 10, *) {
+    print("ios 10 tro len")
+} else {
+    print("doi cu")
+}
