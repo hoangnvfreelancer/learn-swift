@@ -1,6 +1,42 @@
-1. Cho 2 chuỗi string "123" và "456". Hãy in ra ngoài màn hình kết quả với form sau "123 + 456 = ?"
+1. Cho 2 chuỗi string "123" và "456". Hãy in ra ngoài màn hình kết quả với form sau "123 + 456 = ?" với ? là tổng của số bên trong string.
+
+// global
+let a = "123"
+let b = "456"
+
+// Cach 1
+let int_a: Int = Int(a) ?? 0
+let int_b: Int = Int(b) ?? 0
+
+print ("\(a) + \(b) = \(int_a + int_b)")
+
+
+// Cach 2
+let inta: Int
+let intb: Int
+
+if let a = Int(a) { // scope block
+    inta = a
+} else {
+    inta = 0
+}
+
+if let b = Int(b) { // scope block
+    intb = b
+} else {
+    intb = 0
+}
+
+print ("\(a) + \(b) = \(inta + intb)")
 
 2. Cho mảng kí tự ["a", "b", "c", "d", "e", "f"]. In ra màn hình nếu kí tự là "a", "d", "f"
+
+var kitu = ["a", "b", "c", "d", "e", "f"]
+for kitu2 in kitu {
+    if kitu2 == "a" || kitu2 == "c" || kitu2 == "f" {
+        print(kitu2)
+    }
+}
 
 3. Cho mảng string
 [
@@ -11,16 +47,69 @@
 ]
 
 - In ra ngoài màn hình index và giá trị của từng phần tử trong mảng.
+
+for (index, string) in chuoiString.enumerated() {
+    print ("\(index), \(string)")
+}
+
 - In ra ngoài màn hình những chuỗi string kết thúc bằng "special characters"
+
+for scene in chuoiString {
+    if scene.hasSuffix("special characters") {
+        print(scene)
+    }
+}
+
 - In ra ngoài màn hình string bắt đầu với chữ "Initializing"
+
+for scene in chuoiString{
+    if scene.hasPrefix("Initializing"){
+        print(scene)
+    }
+}
 
 4. Cho chuỗi string "Use comments to include nonexecutable text in your code, as a note or reminder to yourself. Comments are ignored by the Swift compiler when your code is compiled."
 To do:
 - Kiểm tra xem trong chuỗi string có text "your code" không.
+
+let check = "your code"
+if textString.contains(check)
+{
+    print ("chuoi \(check) có tồn tại")
+}
+
 - Tìm index của dấu , trong chuỗi string trên. In ra màn hình chuỗi string từ đầu chuỗi tới kí tự trước dấu ,
+
+let index = textString.firstIndex(of: ",") ?? textString.endIndex
+let text = textString[..<index]
+let newString = String(text)
+print(newString)
+
 - Tìm index của đấu . đầu tiên. In ra màn hình chuỗi string từ kí tự sau dấu . tới hết chuỗi string.
-- Tách chuỗi string này thành 2 chuỗi string mới bởi dấu chấm hết câu.
+
+if let index2 = textString.firstIndex(of: ".") {
+    let text2 = textString.suffix(from: textString.index(after: index2))
+    print(text2)
+}
+
 - Insert vào đầu chuỗi string trên với "Comments is helpful. ". Có bao nhiêu dấu . hết câu trong chuỗi string mới sau khi insert.
+
+var textString2 = "Comments is helpful. "
+var newString3 = textString2 + textString
+print(newString3)
+
+// cach 1
+var demdaucham = 0
+for cham in newString3 {
+    if cham == "." {
+        demdaucham += 1
+    }
+}
+print(demdaucham)
+
+// cach 2
+let chamCount = newString3.filter { $0 == "." }.count
+print(chamCount)
 
 5.
 - Tạo 1 dictionary trống kiểu [String: String]
@@ -30,17 +119,112 @@ To do:
 - Xoá key "UK"
 - Sửa giá trị của key "US" thành "United States"
 
+var diadanh: [String: String] = [:]
+diadanh["VN"] = "Việt Nam"
+print(diadanh)
+diadanh["US"] = "US"
+diadanh["UK"] = "Unites Kingdom"
+print (diadanh)
+diadanh["UK"] = nil
+print(diadanh)
+diadanh["US"] = "United States"
+print(diadanh)
+
 6. 
 - Khai báo biến kiểu String và có thể nhận giá trị nil
 - Cho nó giá trị là tên của bạn. In ra ngoài màn hình text với form "Hello [biến], You are welcome!"
 
+var newtext: String?
+newtext = "An"
+print("Hello \(newtext ?? ""), You are welcome!")
+
 7. Khai báo 1 biến integer với giá trị khởi đầu bằng 0. Mỗi vòng lặp lại nhân gấp đôi giá trị cũ. Hỏi sau bao nhiêu vòng lặp thì giá trị lớn hơn 100.
+
+// cach 1
+var condition: Bool = true
+var count: Int = 1
+var count2 = 0
+
+while condition {
+    count *= 2
+    print(count)
+
+    if count > 100 {
+        condition = false
+    } else {
+        count2 += 1
+    }
+}
+print (count2)
+
+// cach 2
+var condition: Bool = true
+var count: Int = 1
+var count2 = 0
+
+while condition {
+    count *= 2
+    print(count)
+
+    if count > 100 {
+        condition = false
+        break
+    }
+    count2 += 1
+}
+print (count2)
 
 8. Cho mảng int như sau [2, 6, 1, 9, 45, 23, 0].
 - Tìm giá trị lớn nhất và nhỏ nhất của mảng. Sau đó in ra ngoài màn hình.
 - Tính trung bình cộng của các số trong mảng.
 
+let numbers = [2, 6, 1, 9, 45, 23, 0]
+var min = Int.max
+var max = Int.min
+
+for number in numbers {
+    if number < min {
+        min = number
+    }
+    if number > max {
+        max = number
+    }
+}
+print(min)
+print(max)
+
+var sum = 0
+for tbNumber in numbers {
+    sum += tbNumber
+}
+
+let trungbinh = Double(sum) / Double(numbers.count)
+print (trungbinh)
+
 9. Cho mảng giá trị ["a", "b", "c", "g", "t", "n", "o", "e", "q", "k", "p", "z"]
 - Note: Có thể di chuyển ngược từ a về z, hoặc tiến từ z về a (tính là 1 bước). Đặt điểm khởi hành là "c" và kết thúc ở "z" (sẽ thay đổi để kiểm tra thuật toán).
-Tính xem số bước nhỏ nhất và hướng di chuyển để di chuyển từ c đến z nhanh nhất có thể.
+Tính xem số bước nhỏ nhất để di chuyển từ c đến z nhanh nhất có thể.
+
+let arr = ["a", "b", "c", "g", "t", "n", "o", "e", "q", "k", "p", "z"]
+
+let start = "p"
+let destination = "a"
+
+if let startIndex = arr.firstIndex(of: start), let endIndex = arr.firstIndex(of: destination) {
+    let khoangcach = endIndex - startIndex
+    let trituyetdoi = khoangcach >= 0 ? khoangcach : -khoangcach
+    let khoangcachnguoc = arr.count - trituyetdoi
+    
+    print(trituyetdoi)
+    print(khoangcachnguoc)
+    
+    if trituyetdoi > khoangcachnguoc {
+        print("quang duong ngan nhat la \(khoangcachnguoc)")
+    } else if trituyetdoi < khoangcachnguoc {
+        print("quang duong ngan nhat la \(trituyetdoi)")
+    } else {
+        print("quang duong bang nhau")
+    }
+}
+
 
