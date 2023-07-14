@@ -1,0 +1,129 @@
+import Foundation
+
+// MARK: Khai niem
+var person: String
+
+person = "An"
+print("Xin chao, " + person + "!")
+print("\(person), Cam on ban vi da dung san pham cua chung toi")
+
+person = "Hoang"
+print("Xin chao, " + person + "!")
+print("\(person), Cam on ban vi da dung san pham cua chung toi")
+
+person = "Quoc"
+print("Xin chao, " + person + "!")
+print("\(person), Cam on ban vi da dung san pham cua chung toi")
+
+// Define a function: Khai bao function
+func greet(person: String) {
+    print("Xin chao, " + person + "!")
+    print("\(person), Cam on ban vi da dung san pham cua chung toi")
+}
+
+// Call function: Goi func ra de su dung
+greet(person: "An")
+greet(person: "Hoang")
+greet(person: "Quoc")
+
+// Func: ko dau vao, tra ve void (ko tra ve gia tri)
+func sayHello() {
+    print("Say Hello!")
+}
+
+sayHello()
+
+// Func: dau vao la String, dau ra la 1 String
+func greetAgain(person: String, nickName: String, age: Int) -> String {
+    return "Hello again, " + person + "!" + " with nick name: " + nickName + ", age: \(age)"
+}
+print(greetAgain(person: "Anna", nickName: "hust", age: 23))
+
+// Func: Nhieu output
+func minMaxOfArray(_ arr: [Int]) -> (Int?, Int?) {
+    return ( arr.min(), arr.max() )
+}
+
+let input: [Int] = [1, 2, 3]
+
+let (minVal, maxVal) = minMaxOfArray(input)
+
+if let min = minVal {
+    print("min: \(min)")
+}
+
+if let max = maxVal {
+    print("max: \(max)")
+}
+
+// input: parameters
+// output: return values
+
+
+// Implicit return: Ngam tra ve gia tri
+// for: label: nhan mac
+func greeting(for person: String) -> String {
+    return "Hello, " + person + "!"
+    
+    // Code after 'return' will never be executed
+    let a = "Hello"
+}
+
+greeting(for: "Quoc")
+
+// Default parameter value: Gia tri mac dinh
+func greeting2(for person: String = "Hoang") {
+    print( "Hello, " + person + "!")
+}
+
+greeting2(for: "Quoc")
+
+// 2 func with same name
+
+func cong2So(a: Int, b: Int) {
+    print(a + b)
+}
+
+func cong2So(a: Double, b: Double) {
+    print(a + b)
+}
+
+// Variadic Parameters
+func arithmeticMean(_ numbers: Double...) -> Double {
+    var total: Double = 0
+    for number in numbers {
+        total += number
+    }
+    return total / Double(numbers.count)
+}
+arithmeticMean(1, 2, 3, 6, 7, 8, 9)
+
+// In-Out Parameters
+
+//var a: Int = 0
+//
+//func changeA(b: Int) {
+//    b = 8
+//}
+//changeA(b: 8)
+//print(a)
+
+func swapTwoInts(_ a: inout Int, _ b: inout Int) {
+    let temporaryA = a
+    a = b
+    b = temporaryA
+}
+
+var someInt = 5
+var anotherInt = 8
+
+swapTwoInts(&someInt, &anotherInt)
+print("someInt is now \(someInt), and anotherInt is now \(anotherInt)")
+
+// value type: copy
+//var x: Int = 8
+//var y = x
+//y = 10
+//print(x)
+
+// reference type: class
