@@ -1,0 +1,87 @@
+import Foundation
+
+let names = ["Chris", "Alex", "Ewa", "Barry", "Daniella"]
+
+func backward(_ s1: String, _ s2: String) -> Bool {
+    return s1 < s2
+}
+
+// call func normal
+backward("a", "b")
+
+// function type
+var funcType: (String, String) -> Bool
+
+var reversedNames = names.sorted(by: backward)
+
+var reversedNames: [String]
+
+// closure
+reversedNames = names.sorted(by: { (s1: String, s2: String) -> Bool in
+    return s1 < s2
+})
+
+
+// implicit value type
+reversedNames = names.sorted(by: { s1, s2 in return s1 < s2 } )
+
+// implicit return
+reversedNames = names.sorted(by: { s1, s2 in s1 > s2 } )
+
+reversedNames = names.sorted(by: { $0 < $1 } )
+
+reversedNames = names.sorted(by: <)
+
+print(reversedNames)
+
+// MARK: Trailing Closures
+
+func someFunctionThatTakesAClosure(myClosure: ()->Void) {
+    myClosure()
+}
+
+someFunctionThatTakesAClosure() {
+    print("hello")
+}
+
+func someFunctionThatTakesAClosure(myClosure: (String)->Void) {
+    myClosure("Phong")
+}
+
+someFunctionThatTakesAClosure() { name in
+    print("hello \(name)")
+}
+
+// Capturing Values
+
+func makeIncrementer(forIncrement amount: Int) -> (() -> Int) {
+    var runningTotal = 0
+
+    func incrementer() -> Int {
+        runningTotal += amount
+        return runningTotal
+    }
+
+    return incrementer
+    
+    // Huy runningTotal
+}
+
+let incrementByTen: ()->Int = makeIncrementer(forIncrement: 10)
+
+incrementByTen()
+incrementByTen()
+incrementByTen()
+
+let incrementBySeven = makeIncrementer(forIncrement: 7)
+
+incrementBySeven()
+
+// Closures Are Reference Types
+
+// Reference type : cung 1 o nho, 2 thang la 1
+// Value type: 2 o nho doc lap, ko thay doi nhau
+
+let another = incrementBySeven
+another()
+incrementBySeven()
